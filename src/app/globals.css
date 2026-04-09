@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-start-rgb));
+  /* Hide scrollbar for standard look */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Lenis */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Structural Grid Overlay */
+.structural-grid {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 8vw 8vw;
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .text-micro {
+    @apply text-[10px] font-sans uppercase tracking-[0.4em];
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Selection */
+::selection {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+
+/* Blueprint Mode Global Injectors */
+.blueprint-active .structural-grid {
+  background-image: linear-gradient(to right, rgba(0, 102, 255, 0.2) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 102, 255, 0.2) 1px, transparent 1px);
+  background-size: 4vw 4vw;
+}
+
+.blueprint-active img {
+  filter: grayscale(1) invert(0.8) opacity(0.15) !important;
+  mix-blend-mode: screen;
+}
+
+.blueprint-active h1, .blueprint-active h2, .blueprint-active h3 {
+  color: #0066FF !important; /* Blueprint Blue */
+  text-shadow: 0 0 10px rgba(0, 102, 255, 0.3);
+}
+
+.blueprint-active .text-alabaster {
+  color: #0066FF !important;
+}
+
+.blueprint-active .bg-void {
+  background-color: #000814 !important; /* Deepest Navy */
+}
+
+
